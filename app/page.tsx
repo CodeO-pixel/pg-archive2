@@ -717,6 +717,11 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans">
+      {(!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) && (
+        <div className="bg-red-900 text-red-100 text-xs sm:text-sm font-bold text-center py-2 px-4">
+          ⚠️ Faltan las variables de entorno de Supabase. Configúralas en tu hosting (Environment Variables) y vuelve a desplegar.
+        </div>
+      )}
       {/* HEADER / NAVEGACIÓN */}
       <header className="border-b border-slate-800 bg-slate-900/90 backdrop-blur sticky top-0 z-40 px-4 sm:px-6 py-4 flex flex-wrap items-center justify-between gap-3 shadow-md">
         <div className="flex items-center space-x-3 sm:space-x-6">
